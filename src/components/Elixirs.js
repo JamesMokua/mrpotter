@@ -33,19 +33,19 @@ const Elixirs = () => {
   
   return (
     <div>
-    <div>Elixirs</div>
+
     {/*manage loading and display error message*/}
       {loading && <div>A moment please...</div>}
       {error && (
         <div> { `There is a problem fetching the post data - ${error}`}</div>
       )}
-      <ul>
+   
       {/*map through the fetched data,destructure it and display it*/}
       {/*if else to show not available if data not included in fetched data*/}
         {
           elixirs &&
           elixirs.map(({id,name,effect,sideEffects,characteristics,time,difficulty,ingredients,inventors,manufacturer}) => (
-            <li key={id}>
+            <div key={id}>
               <div><b>Name:</b>{(name != null ? <div> {name} </div> : <div>Not Available</div> )}</div> 
         <div><b>Effect:</b>{(effect != null ? <div> {effect} </div> : <div>Not Available</div> )}</div> 
         <div><b>Side Effect:</b>{(sideEffects != null ? <div> {sideEffects} </div> : <div>Not Available</div> )}</div>  
@@ -53,20 +53,20 @@ const Elixirs = () => {
         <div><b>Time:</b>{(time != null ? <div> {time} </div> : <div>Not Available</div> )}</div>   
         <div><b>Difficulty:</b>{(difficulty != null ? <div> {difficulty} </div> : <div>Not Available</div> )} </div>           
         {/*map through ingredients and inventors and display data inside*/}
-        <div><b>Ingredients:</b> {(ingredients.length >= 1 ? <>{ingredients.map(({name}) => (
+        <div><b>Ingredients:</b> {(ingredients.length >= 1 ? <>{ingredients.map(({id,name}) => (
         <ul>
-          <li>{name}</li>
+          <li key={id}>{name}</li>
         </ul>
         ))}</>: <div>Not Available</div>)}</div> 
-        <div><b>Inventors:</b> {(inventors.length >= 1 ? <>{inventors.map(({firstName,lastName}) => (
-          <div>{firstName +  lastName}</div>
+        <div><b>Inventors:</b> {(inventors.length >= 1 ? <>{inventors.map(({id,firstName,lastName}) => (
+          <div key={id}>{firstName +' ' + lastName}</div>
         ))}</>: <div>Not Available</div>)}</div> 
         <div><b>Manufacturers: </b>{(manufacturer != null ? <div> {manufacturer} </div> : <div>Not Available</div> )}</div> 
               <hr/>
-            </li>
+            </div>
           ))
         }
-      </ul>
+     
     </div>
 
   )
