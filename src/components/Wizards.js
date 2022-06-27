@@ -43,7 +43,24 @@ const Wizards = () => {
                 <li>{name}</li>
             </ul>
         ))}</div>
-        <div><b>Name:</b> {firstName+' '+ lastName}</div>
+        <div><b>Name:</b>
+        {/**if else rendered as an anonymous function */}
+        {(() => {
+        if (firstName && lastName != null) {
+          return (
+            <div>{firstName+' '+ lastName}</div>
+          )
+        } else if (firstName == null && lastName !=null) {
+          return (
+            <div>{lastName}</div>
+          )
+        } else {
+          return (
+            <div>{firstName}</div>
+          )
+        }
+      })()}
+         </div>
         <hr/>
         </div>
       ))
