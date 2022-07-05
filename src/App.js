@@ -3,6 +3,7 @@ import { Pivot, PivotItem } from '@fluentui/react';
 import Houses from "./components/Houses";
 import Spells from "./components/Spells";
 import Wizards from "./components/Wizards";
+import Ingredients from "./components/Ingredients";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </PivotItem>
         <PivotItem headerText="Wizards">
           <Wizards/>
+        </PivotItem>
+        <PivotItem headerText="Ingredients">
+          <Ingredients/>
         </PivotItem>
       </Pivot>
      
